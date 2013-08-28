@@ -1,0 +1,131 @@
+
+<html>
+
+    <%= form_for @user do |f| %>
+	<center>
+
+	   <div>
+	
+		<table>
+		   	   
+		   <tr >
+			
+			<td><font color="white "><center><b>Create New User Login</b></center><font></td>
+			
+		   </tr>
+		   
+		   
+		</table>
+
+		<table>
+
+		   <tr></tr>
+		   <tr>
+			<td width = "45%">&emsp;E-Mail</td>
+	   		<td><%= f.text_field :email %></td>
+		   </tr>
+		  
+		   
+		   <tr>
+		   	<td width = "45%">&emsp;Password</td>
+			<td><%= f.password_field :password %></td>
+		   </tr>
+
+		   
+		   <tr>
+		   	<td width = "45%">&emsp;Re-Type Password</td>
+			<td><%= f.password_field :password_confirmation %></td>
+		   </tr>
+		  
+		   
+		   <tr>
+			<td width = "45%">&emsp;Name </td>
+			<td><%= f.text_field :name %>
+				
+		   </tr>
+
+		   
+		   <tr>
+			<td width = "45%">&emsp;Door Number		</td>
+			<td><%= f.text_field :address_line_1 %></td>
+		   </tr>
+
+		   
+		   <tr>
+			<td width = "45%">&emsp;Native Place		</td>
+			<td><%= f.text_field :address_line_2 %></td>
+		   </tr>
+
+		   
+		   <tr>
+
+			<td width = "45%">&emsp;City		</th>
+			<td><%= f.text_field :city %></td>
+		   </tr>
+
+		   
+		   <tr>
+			<td width = "45%">&emsp;State		</td>
+			<td><%= f.collection_select(:state,State.all,:id, :state,{:prompt => "Select State"},{:class=>'collection'})  %></td>
+		   </tr>
+
+		   
+		   <tr>
+			<td width = "45%">&emsp;Postal Number		</td>
+			<td><%= f.text_field :pin %></td>
+		   </tr>        
+
+		   
+		   <tr>
+			<td width = "45%">&emsp;Mobile Number	</td>
+			<td><%= f.text_field :mobile %></td>
+		   </tr>
+
+		   
+		   <tr>
+			<td width = "45%">&emsp;Date of Birth<font color="black" size="2pt"></font></td>
+			<td><%= f.text_field :date_of_birth, :id => "datepicker"  %></td>
+		   </tr>
+
+		   
+		   <tr>
+
+			<td width = "45%">&emsp;Gender</td>
+			<td>
+			    <%= f.radio_button :gender, 1 %><%= f.label :gender_1, "Male" %>&emsp;&emsp;
+			    <%= f.radio_button :gender, 2 %><%= f.label :gender_2, "Female" %>&emsp;
+			</td>
+
+		   </tr>
+
+		   
+		   <tr>
+			<td width = "45%">&emsp;Security Question		</td>
+			<td><%= f.collection_select(:hint_question,HintQuestion.all,:id, :hint_question,{:prompt => "Select Question"}, {:class=>'collection'})  %></td>
+				
+		   </tr>
+
+		   
+		   <tr>
+			<td width = "45%">&emsp;Security Answer	</td>
+			<td><%= f.text_field :hint_answer %></td>
+		   </tr>
+
+		   
+		</table>
+		<br />
+		    <div class="button_div" align="center">
+			<input type="submit" value = "Submit" onClick="return validateRegistrationForm();" class="button"%>
+			&nbsp;&nbsp;&nbsp;<INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;" class="button">
+		    </div>
+		<br />
+			
+	    </div>
+		
+
+	</center>
+
+	
+    <% end %>
+
+</html>

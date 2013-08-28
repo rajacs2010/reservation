@@ -1,0 +1,19 @@
+
+<html>
+
+        <div id="main">
+        
+            <div id="main_left" class= "CSSTableGenerator">
+		<br />
+		&emsp;<%= link_to "Station Management","#", :onclick => "loadData('main_right','stations/station_list/id');" %><br /><br />
+		&emsp;<%= link_to "Routes Management","#", :onclick => "loadData('main_right','routes/routes_list/id');" %><br /><br />
+		&emsp;<a href="# " onClick="history.go(-1);return true;">Back</a>
+		<br /><br />
+            </div>
+	    <div id="main_right" class= "CSSTableGenerator3">
+<img src="assets/station.jpeg" height ="400px" width="675px">
+	    </div>
+	</div>
+
+
+</html>

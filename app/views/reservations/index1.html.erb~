@@ -1,0 +1,35 @@
+<html>
+
+   <form type = "input" action="search" method="post">
+
+     <div class="CSSTableGenerator1">
+	<table width = "400">
+	    <tr>
+		<td>&emsp;From</td>
+		<td><input type = "text" name="source"></td>
+	    </tr>
+	    <tr>
+		<td>&emsp;To</td>
+		<td><input type = "text" name="destination"></td>
+	    </tr>
+	    <tr>
+		<td>&emsp;Date</td>
+		<td><input type = "text" name="source" id = "datepicker1"></td>
+	    </tr>
+	    <tr>
+		<td>&emsp;Quata</td>
+		<td>
+		    <select>
+			<option value="General">General</option>
+		    </select> 
+		</td>
+	    </tr>
+
+	</table>
+	<br />
+	<INPUT Type="submit" VALUE="Find Trains" class="button">
+	<INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;" class="button">
+
+     </div>
+   </form>
+</html>

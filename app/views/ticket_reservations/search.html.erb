@@ -1,0 +1,154 @@
+
+
+<html>
+
+
+	<div class="CSSTableGenerator">
+
+		<table>
+
+			<tr>
+				<td>Train Number</td>
+				<td>Train Name</td>
+				<td>1AC</td>
+				<td>2AC</td>
+				<td>3AC</td>
+				<td>CC</td>
+				<td>SL</td>
+				<td>SS</td>
+
+		        </tr>
+			<% @nill = "X" %>
+			<% @empty = 0 %>
+			<% if @trains.empty? %>
+
+				<% error = "No Trains Available to this route" %>
+			        <%= error %>
+
+			<% else %>
+
+			<% @trains.each do |train| %>
+			 
+			   <% if train %>
+			
+			      <tr>
+
+				<% @coach = Coach.find_by_train_number(train.train_number.to_i) %>
+				<% @availability = Availability.where(:train_number => train.train_number,:travel_date => $travel_date).all %>
+				
+				<td><center><%= @coach.train_number %></center></td>
+				<td><center><%= train.train_name + " " + train.train_type %></center></td>
+				<% for availability in @availability do %>
+				  <% if @coach.first_ac > 0 %>
+
+				   <td>
+				      <center>
+					
+					<% if availability.first_AC > 0 %>
+					   <%= link_to "#{availability.first_AC}", {:controller => "ticket_reservations", :action => "new", :available_ticket => availability.first_AC, :coach => "First AC", :train_number => availability.train_number } %>
+					<% else %>
+					   <font color="red"><%= @empty %></font>
+					<% end %>
+				      </center>
+				   </td>
+				<% else %>
+				   <td><center><%= @nill %></center></td>
+				<% end %>
+				<% if @coach.second_ac > 0 %>
+				   <td>
+				      <center>
+					
+					<% if availability.second_AC > 0 %>
+					   <%= link_to "#{availability.second_AC}", {:controller => "ticket_reservations", :action => "new", :available_ticket => availability.second_AC, :coach => "Second AC", :train_number => availability.train_number } %>
+					<% else %>
+					   <font color="red"><%= @empty %></font>
+					<% end %>
+				      </center>
+				   </td>
+
+				<% else %>
+				   <td><center><%= @nill %></center></td>
+				<% end %>
+				<% if @coach.third_ac > 0 %>
+				   <td>
+				      <center>
+					
+					<% if availability.third_AC > 0 %>
+					   <%= link_to "#{availability.third_AC}", {:controller => "ticket_reservations", :action => "new", :available_ticket => availability.third_AC, :coach => "Third AC", :train_number => availability.train_number } %>
+					<% else %>
+					   <font color="red"><%= @empty %></font>
+					<% end %>
+				      </center>
+				   </td>
+
+				<% else %>
+				   <td><center><%= @nill %></center></td>
+				<% end %>
+				<% if @coach.chair_car > 0 %>
+				   <td>
+				      <center>
+					
+					<% if availability.chair_car > 0 %>
+					   <%= link_to "#{availability.chair_car}", {:controller => "ticket_reservations", :action => "new", :available_ticket => availability.chair_car, :coach => "Chair Car", :train_number => availability.train_number } %>
+					<% else %>
+					   <font color="red"><%= @empty %></font>
+					<% end %>
+				      </center>
+				   </td>
+
+				<% else %>
+				   <td><center><%= @nill %></center></td>
+				<% end %>
+				<% if @coach.sleeper > 0 %>
+				   <td>
+				      <center>
+					
+					<% if availability.sleeper > 0 %>
+					   <%= link_to "#{availability.sleeper}", {:controller => "ticket_reservations", :action => "new", :available_ticket => availability.sleeper, :coach => "Sleeper", :train_number => availability.train_number } %>
+					<% else %>
+					   <font color="red"><%= @empty %></font>
+					<% end %>
+				      </center>
+				   </td>
+
+				<% else %>
+				   <td><center><%= @nill %></center></td>
+				<% end %>
+				<% if @coach.sitting > 0 %>
+				   <td>
+				      <center>
+					
+					<% if availability.sitting > 0 %>
+					   <%= link_to "#{availability.sitting}", {:controller => "ticket_reservations", :action => "new", :available_ticket => availability.sitting, :coach => "Sitting", :train_number => availability.train_number } %>
+					<% else %>
+					   <font color="red"><%= @empty %></font>
+					<% end %>
+				      </center>
+				   </td>
+
+ 				<% else %>
+				   <td><center><%= @nill %></center></td>
+				<% end %>
+
+
+				<% end %>
+				
+			      </tr>
+
+			   <% else %>
+			      <% error = "No Trains Available to this route" %>
+			      <%= error %>
+		   	   <% end %>
+
+		        <% end %>
+
+		       <% end %>
+
+		</table>
+		<br /><br />
+		<center>
+			<INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;" class="button">
+		</center>
+	</div>
+
+</html>

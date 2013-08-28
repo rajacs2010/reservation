@@ -1,0 +1,2 @@
+module SeatAvailabilityDetailsHelper
+end

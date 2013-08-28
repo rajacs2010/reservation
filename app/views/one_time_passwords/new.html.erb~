@@ -1,0 +1,29 @@
+
+
+<html>
+  <fieldset style="width: 550px">
+   <legend><h3>Forgot Password</h3></legend>
+
+<%= form_tag one_time_password_path do |f| %>
+   <br />
+   <div>
+      <table>
+	<tr></tr>
+	   <tr><td>Enter E-Mail</td>
+	   <td>&emsp;&emsp;<%= text_field_tag :email, params[:email] %></td> </tr>
+        
+	   <tr><td>Enter One-Time Password</td>
+	   <td>&emsp;&emsp;<%= password_field_tag :one_time_password, params[:one_time_password] %></td> </tr>
+           
+      </table>
+      <br />
+
+      <div class="button_div"><%= submit_tag "submit", :class => "button" %>
+	&nbsp;&nbsp;&nbsp;<INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;" class="button">
+      </div>
+      
+   </div>
+
+<% end %>
+</fieldset>
+</html>

@@ -1,0 +1,48 @@
+
+
+
+<html>
+
+     <%= form_for @cost do |form| %>
+	<div style="margin:50px;" align="justify">
+	    <font color ="red"><%= form.error_messages :header_message => "Invalid Details!",
+  			:message => "You'll need to fix the following fields:",
+  			:header_tag => :h3 %></font>
+	</div>
+    	<fieldset style="width: 320px;">
+
+            <legend><h3>New Cost/KM  </h3></legend>
+	    
+	   
+	    <table class="table">
+
+		<tr>
+			<td>First AC</td><td><%= form.text_field :first_ac, :size => 5, :onblur => 'if(this.value==""){this.value=0;}' %><br /></td>
+		</tr>
+		<tr>
+			<td>Second AC</td><td><%= form.text_field :second_ac, :size => 5, :onblur => 'if(this.value==""){this.value=0;}' %><br /></td>
+		</tr>
+		<tr>
+			<td>Third AC</td><td><%= form.text_field :third_ac, :size => 5, :onblur => 'if(this.value==""){this.value=0;}' %><br /></td>
+		</tr>
+		<tr>
+			<td>Chair Car</td><td><%= form.text_field :chair_car, :size => 5, :onblur => 'if(this.value==""){this.value=0;}' %><br /></td>
+		</tr>
+		<tr>
+			<td>Sleeper</td><td><%= form.text_field :sleeper, :size => 5, :onblur => 'if(this.value==""){this.value=0;}' %><br /></td>
+		</tr>
+		<tr>
+			<td>Second Sitting</td><td><%= form.text_field :sitting, :size => 5, :onblur => 'if(this.value==""){this.value=0;}' %><br /></td>
+		</tr>
+
+	    </table>
+		<br />
+		<%= form.submit "Submit", :class => "button" %>&emsp;
+		<INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;" class="button">
+
+	
+		<br /><br />
+    </fieldset>
+<% end %>
+
+</html>

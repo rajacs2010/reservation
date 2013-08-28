@@ -1,0 +1,38 @@
+
+
+<html>
+
+	    <div>
+		<h2><center><b>Routes List</b></center></h2>
+		<%= link_to "New Route", new_route_path, :class => "button" %>&emsp;
+			<INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;" class="button"><br /><br />
+		<table class="table1">
+			<tr>
+				<td>S.No</td>
+				<td>Route No</td>
+				<td>Route Name</td>
+				<td>Distance</td>
+				<td></td>
+				
+			</tr>
+		    <% i = 0 %>
+		    <% @route.each do |route| %>
+			
+			<tr>
+				<td><center><%= i = i + 1 %></center></td>
+				<td><center><%= route.id %></center></td>
+				<td><%= route.route %></td>
+				<td><%= route.distance %></td>
+				<td><%= link_to image_tag("edit.png"),edit_route_path(route)%>&emsp;&emsp;
+				    <%= link_to image_tag("delete.png"), route, :method => :delete, :data => { :confirm => 'Are you sure?' }, :remote => true %></td>
+			</tr>
+
+		    <% end %>
+		</table>
+		<br />
+		<%= link_to "New Route", new_route_path, :class => "button" %>&emsp;
+			<INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;" class="button">
+	    </div>
+
+</html>
+

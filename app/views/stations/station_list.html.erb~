@@ -1,0 +1,48 @@
+
+
+<html>
+
+	    <div>
+
+			<%= form_tag station_list_path, :method => 'get' do %>
+			 
+			  <p>
+			    <%= text_field_tag :search, params[:search] %>
+			    <%= submit_tag "Search", :name => nil %>
+			  </p>
+			<% end %>
+
+		<h2><center><b>Station List</b></center></h2>
+		<%= link_to "New Station", "#", :class => "button",:onclick => "loadDialog('New Station','stations/new','#new_station');" %>&emsp;
+			<INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;" class="button"><br /><br />
+		<table class="table1">
+			<tr>
+				<td>S.No</td>
+				<td>Station Name</td>
+				<td>Station Code</td>
+				<td>Edit</td>
+			</tr>
+		    <% i = 0 %>
+		    <% @station.each do |station| %>
+			
+			<tr>
+				<td><b><center><%= i = i + 1 %></center></b></td>
+				<td><%= station.station_name %></td>
+				<td><%= station.station_code %></td>
+				<td><%= link_to image_tag("edit.png"),edit_station_path(station)%>&emsp;&emsp;
+				    <%= link_to image_tag("delete.png"), station, :confirm => 'Are you sure?',:method => :delete,
+                              :remote => true, :class => "delete"%></td>
+			</tr>
+
+		    <% end %>
+		</table>
+		<%= will_paginate @station %>
+
+
+		<br />
+		<%= link_to "New Station", "#", :class => "button",:onclick => "loadDialog('New Station','stations/new','#new_station');" %>&emsp;
+			<INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;" class="button">
+	    </div>
+
+</html>
+

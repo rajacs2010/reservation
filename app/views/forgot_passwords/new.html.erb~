@@ -1,0 +1,27 @@
+
+
+<html>
+  <fieldset style="width: 550px">
+   <legend><h3>Forgot Password</h3></legend>
+
+<%= form_tag forgot_password_path do |f| %>
+   <br />
+   <div>
+
+      <table>
+
+	   <tr></tr>
+	   <tr><td>Enter Your Email</td>
+	   <td>&emsp;&emsp;<%= text_field_tag :email, params[:email] %></td> </tr>
+           
+      </table>
+      <br />
+      <div class="button_div"><%= submit_tag "submit", :class => "button" %>
+	&nbsp;&nbsp;&nbsp;<INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;" class="button">
+      </div>
+      
+   </div>
+
+<% end %>
+</fieldset>
+</html>

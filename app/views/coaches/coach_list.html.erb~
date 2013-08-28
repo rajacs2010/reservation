@@ -1,0 +1,48 @@
+
+
+<html>
+
+	    <div class="CSSTableGenerator">
+
+		<h2><center><b>Train's Coaches</b></center></h2>
+		<%= link_to "New Coach", new_coach_path, :class => "button" %>&emsp;
+			<INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;" class="button"><br /><br />
+
+		<table class="table1">
+			<tr>
+				<td>S.No</td>
+				<td>Train Number</td>
+				<td>1st Ac</td>
+				<td>2nd Ac</td>
+				<td>3rd Ac</td>
+				<td>Chair Car</td>
+				<td>Sleeper</td>
+				<td>Second Sitting</td>
+				<td></td>
+				
+			</tr>
+		    <% i = 0 %>
+		    <% @coach.each do |coach| %>
+			
+			<tr>
+				<td><center><%= i = i + 1 %></center></td>
+				<td><center><%= coach.train_number %></center></td>
+				<td><center><%= coach.first_ac %></center></td>
+				<td><center><%= coach.second_ac %></center></td>
+				<td><center><%= coach.third_ac %></center></td>
+				<td><center><%= coach.chair_car %></center></td>
+				<td><center><%= coach.sleeper %></center></td>
+				<td><center><%= coach.sitting %></center></td>
+				<td><%= link_to image_tag("edit.png"),edit_coach_path(coach)%>&emsp;&emsp;
+				    <%= link_to image_tag("delete.png"), coach, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+
+		    <% end %>
+		</table>
+		<br />
+		<%= link_to "New Coach", new_coach_path, :class => "button" %>&emsp;
+			<INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;" class="button">
+	    </div>
+
+</html>
+

@@ -1,0 +1,11 @@
+
+
+<html>
+
+	<%= link_to "Train Management",train_list_path, :class => "button3" %><br /><br />
+	<%= link_to "Coach Management",coach_list_path, :class => "button3" %><br /><br />
+	<%= link_to "Seat Management",new_availability_path, :class => "button3" %><br /><br />
+	<%= link_to "Cost Management",edit_cost_path(1), :class => "button3" %><br /><br />
+	<INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;" class="button3">
+
+</html>

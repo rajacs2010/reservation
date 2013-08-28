@@ -1,0 +1,67 @@
+#################################################################################
+#										#
+#   File			: seat_availability_details_controller.rb	#
+#   Project			: Reservation System				#
+#   Module			: Train Management				#
+#   Description			: This controller used to maintain all the 	#
+#				  details of the availability of seats		#
+#										#
+#   Revision History								#
+#										#
+#   Created Date		: 25/03/2013					#
+#   Modified Date		: 25/03/2013					#
+#   By				: Muthukrishnan					#
+#   Designation			: Tech-Project Trainee				#
+#										#
+#################################################################################
+
+class SeatAvailabilityDetailsController < ApplicationController
+
+   ##############################################################################
+   #   Name		: new 							#
+   #   Programmer(s)	: Muthukrishnan						#
+   #   Written Date	: 25/03/2013						#
+   #   Modified Date	: 25/03/2013						#
+   #   Tested By	: 							#
+   #   Tested Date	: 							#
+   ##############################################################################
+
+    def new
+	@available_seat = SeatAvailabilityDetail.new
+    end  #def new
+
+   ##############################################################################
+   #   Name		: create						#
+   #   Description	: Used to create the station				#
+   #   Programmer(s)	: Muthukrishnan						#
+   #   Written Date	: 25/03/2013						#
+   #   Modified Date	: 25/03/2013						#
+   #   Tested By	: 							#
+   #   Tested Date	: 							#
+   ##############################################################################
+
+    def create
+
+	@available_seat = SeatAvailabilityDetail.new(params[:available_seat])
+	@train_number = @available_seat.train_number.to_i
+	flash.now.alert = "#{@train_number}"
+
+	respond_to do |format|
+
+	    if @available_seat.save
+
+		format.html { redirect_to train_home_path  }
+		format.xml { render :xml => @available_seat, :status => :created, :location => @available_seat }
+
+	    else
+
+		format.html { render :action => "new" }
+		format.xml { render :xml => @available_seat.errors, :status => :unprocessable_entity }
+
+	    end   #if @route.save
+
+	end  #	respond_to do |format|
+
+    end  #def create
+
+end   #class SeatAvailabilityDetailsController < ApplicationController

@@ -1,0 +1,28 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+    <%= hidden_field_tag :sort, params[:sort] %>
+
+
+<div  class="CSSTableGenerator">
+    <table>
+        <tr>
+            <td>S.No</td>
+            <td class="th"><%= sortable "station_code"%></th>
+            <td class="th"><%= sortable "station_name" %></th>
+            
+        </tr>
+        <% i = 0 %>
+        <% @stations.each do |station| %>
+        
+            <tr>
+                
+                <td><center><%= i = i + 1 %></center></td>
+                <td><center><%= station.station_code %></center></td>
+                <td><%= station.station_name %></td>
+                
+            </tr>
+
+        <% end %>
+
+    </table>
+    <%= will_paginate @stations %>
+</div>

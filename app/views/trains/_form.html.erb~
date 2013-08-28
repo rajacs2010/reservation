@@ -1,0 +1,41 @@
+
+
+
+<html>
+
+     <%= form_for @train do |form| %>
+<div style="margin:50px;" align="justify">
+		<font color ="red"><%= form.error_messages :header_message => "Invalid Details!",
+  			:message => "You'll need to fix the following fields:",
+  			:header_tag => :h3 %></font>
+	    </div>
+    <fieldset style="width: 320px;">
+
+        <legend><h3>New Train  </h3></legend>
+	    
+	   
+	    <table class="table">
+
+		<tr><td>Train Route</td></tr>
+		<tr><td><%= form.collection_select(:route_id,Route.all,:id, :route,{:prompt => "Select Route"},{:class=>'collection'})  %><br /></td></tr>
+		<tr><td>Train Name</td></tr>
+		<tr><td><%= form.text_field :train_name, :size => 25 %><br /></td></tr>
+		<tr><td>Train Type</td></tr>
+		<tr><td><%= form.collection_select(:train_type,TrainType.all,:train_type, :train_type,{:prompt => "Train Type"},{:class=>'collection'})  %><br /></td></tr>
+		<tr><td>Departure Time</td></tr>
+		<tr><td><%= time_select "train", "departure_time", { :default => Time.now, :simple_time_select => true, 
+:minute_interval => 20, :time_separator => "", :start_hour => 10, :end_hour => 14 } %></td></tr>
+		<tr><td>Traveling Time</td></tr>
+		<tr><td><%= form.text_field :travel_time, :size => 25 %><br /></td></tr>
+
+	    </table>
+		<br />
+		<%= form.submit "Submit", :class => "button" %>&emsp;
+		<INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;" class="button">
+
+	
+		<br /><br />
+    </fieldset>
+<% end %>
+
+</html>

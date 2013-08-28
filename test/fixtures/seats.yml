@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  FAC: 1
+  SAC: 1
+  TAC: 1
+  CC: 1
+  SL: 1
+  SS: 1
+
+two:
+  FAC: 1
+  SAC: 1
+  TAC: 1
+  CC: 1
+  SL: 1
+  SS: 1

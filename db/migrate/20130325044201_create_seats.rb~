@@ -1,0 +1,47 @@
+#################################################################################
+#										#
+#   File			: 20130325044201_create_seats.rb		#
+#   Project			: Reservation System				#
+#   Module			: Train Management				#
+#   Description			: create the table to store the Train seat 	#
+#										#
+#   Revision History								#
+#										#
+#   Created Date		: 25/03/2013					#
+#   Modified Date		: 25/03/2013					#
+#   By				: Muthukrishnan					#
+#   Designation			: Tech-Project Trainee				#
+#										#
+#################################################################################
+
+class CreateSeats < ActiveRecord::Migration
+
+   ##############################################################################
+   #   Name		: change						#
+   #   Description	: Used to create table named seats to 			#
+   #   			  store the train seat cost				#
+   #   Programmer(s)	: Muthukrishnan						#
+   #   Written Date	: 25/03/2013						#
+   #   Modified Date	: 25/03/2013						#
+   #   Tested By	: 							#
+   #   Tested Date	: 							#
+   ##############################################################################
+
+  def change
+
+    create_table :seats do |t|
+
+      t.integer :FAC
+      t.integer :SAC
+      t.integer :TAC
+      t.integer :CC
+      t.integer :SL
+      t.integer :SS
+
+      t.timestamps
+
+    end   #create_table :seats do |t|
+
+  end   #def change
+
+end   #class CreateSeats < ActiveRecord::Migration

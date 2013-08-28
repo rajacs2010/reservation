@@ -1,0 +1,10 @@
+
+
+<html>
+Hi <%= @user.name %>,<br />
+&emsp;&emsp;&emsp;Welcome to QADEX Employee's Bank.<br /><br />
+&emsp;&emsp;&emsp;<%= link_to "Edit Profile", edit_user_url(@user, :host => "#{@ip.to_s}:3000") %>
+<br /><br />
+&emsp;&emsp;&emsp;Thanks and Regards,<br />
+&emsp;&emsp;&emsp;Admin
+</html>

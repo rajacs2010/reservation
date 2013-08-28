@@ -1,0 +1,42 @@
+<!--#####################################################################################-->
+<!--#											#-->
+<!--#   FILE			: new.html.erb						#-->
+<!--#   PROJECT			: BankingSystem						#-->
+<!--#   MODULE			: Login							#-->
+<!--#   Description		: This form is used to Login to the application		#-->
+<!--#											#-->
+<!--#   REVISION HISTORY								#-->
+<!--#											#-->
+<!--#   Created Date		: 20/03/2013						#-->
+<!--#   Modified Date		: 20/03/2013						#-->
+<!--#   By			: Muthukrishnan						#-->
+<!--#   Designation		: Tech-Project Trainee					#-->
+<!--#											#-->
+<!--#####################################################################################-->
+
+<html>
+
+	<%= form_for(@stations) do |form|%>
+
+		<table>
+			<tr>
+				<th>S.No</th>
+				<th>Station Name</th>
+				<th>Station Code</th>
+			</tr>
+		    <% @station.each do |station| %>
+
+			<tr>
+				<td>station.id</td>
+				<td>station.name</td>
+				<td>station.code</td>
+			</tr>
+
+		    <% end %>
+		</table>
+		
+		<%= link_to "New Station", root_url, :class => "button1" %>
+
+	<% end %>
+
+</html>

@@ -1,0 +1,52 @@
+
+
+
+<html>
+
+  <head>
+
+    <script type="text/javascript">
+	$(document).ready(function () {
+
+		$('#order_item_moulding_1_id').change(function () {
+			var moulding_1_price = $(this).find('option:selected').attr('station_code');
+			document.getElementById("hello").value = moulding_1+price.val
+		});
+
+	});
+ </script>
+
+
+  </head>
+
+     <%= form_for @route do |form| %>
+<div style="margin:50px;" align="justify">
+		<font color ="red"><%= form.error_messages :header_message => "Invalid User Details!",
+  			:message => "You'll need to fix the following fields:",
+  			:header_tag => :h3 %></font>
+	    </div>
+    <fieldset style="width: 320px;">
+
+        <legend><h3>New Route  </h3></legend>
+	    
+	   
+	    <table class="table">
+
+		<tr><td>Source</td></tr>
+		<tr><td><%= form.collection_select(:source,Station.all,:station_code, :station_name,{:prompt => "Select Source"},{:id=>'order_item_moulding_1_id'})  %><br /></td></tr>
+		<tr><td>Destination</td></tr>
+		<tr><td><%= form.collection_select(:destination,Station.all,:station_name, :station_name,{:prompt => "Select Destination"},{:class=>'collection'})  %><br /></td></tr>
+		<tr><td>Distance</td></tr>
+		<tr><td><%= form.text_field :distance, :size => 20, :id => "hello" %></td></tr>
+
+	    </table>
+		<br />
+		<%= form.submit "Submit", :class => "button" %>&emsp;
+		<INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;" class="button">
+
+	
+		<br /><br />
+    </fieldset>
+<% end %>
+
+</html>

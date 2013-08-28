@@ -1,0 +1,165 @@
+<!-- **************************************************************************
+ FILE NAME : new_profile.html.erb
+
+ PROJECT NAME : blood_bank
+
+ DESCRIPTION: To display error message while updating password
+  
+ REVISION HISTORY
+  Date: 3-04-2013
+  By: Saranya S
+ 
+*******************************************************************************-->
+<html>
+<head>
+   <title>JavaScript - Select All checkbox in form</title>
+     
+<script>
+var fieldName='chkName';
+
+function selectall(){
+
+  var i=document.frm.elements.length;
+  var e=document.frm.elements;
+  var name=new Array();
+  var value=new Array();
+  var j=0;
+  for(var k=0;k<i;k++)
+  {
+    if(document.frm.elements[k].name==fieldName)
+    {
+      if(document.frm.elements[k].checked==true){
+        value[j]=document.frm.elements[k].value;
+        j++;
+      }
+    }
+  }
+  checkSelect();
+}
+function selectCheck(obj)
+{
+ var i=document.frm.elements.length;
+  for(var k=0;k<i;k++)
+  {
+    if(document.frm.elements[k].name==fieldName)
+    {
+      document.frm.elements[k].checked=obj;
+    }
+  }
+  selectall();
+}
+
+function selectallMe()
+{
+  if(document.frm.allCheck.checked==true)
+  {
+   selectCheck(true);
+  }
+  else
+  {
+    selectCheck(false);
+  }
+}
+function checkSelect()
+{
+ var i=document.frm.elements.length;
+ var berror=true;
+  for(var k=0;k<i;k++)
+  {
+    if(document.frm.elements[k].name==fieldName)
+    {
+      if(document.frm.elements[k].checked==false)
+      {
+        berror=false;
+        break;
+      }
+    }
+  }
+  if(berror==false)
+  {
+    document.frm.allCheck.checked=false;
+  }
+  else
+  {
+    document.frm.allCheck.checked=true;
+  }
+}
+</script>
+ <style>
+        .containerDiv {
+	  border: 1px solid #3697f6;
+	  width: 100%; display:table
+	}
+	.rowDivHeader {
+	  border: 1px solid #668db6;
+	  background-color: #336799;
+	  color: white;
+	  font-weight: bold; display:table-row
+	}
+	.rowDiv {
+	  border: 1px solid #668db6;
+	  background-color: #cee6fe;
+	  display:table-row
+	}
+	.cellDivHeader {
+	  border-right: 1px solid white;
+	  display: table-cell;
+	  width:12%;
+	  padding: 1px;
+	  text-align: center; 
+	}
+	.cellDiv {
+	  border-right: 2px solid white;
+	  display: table-cell;
+	  width:10%;
+	  padding-right: 4px;
+	  text-align: center;
+	  border-bottom: none;
+	}
+
+	.lastCell {
+	  border-right: none;
+	}
+    </style>
+   
+</head>
+<body>
+<form name="frm" action = "check">
+<div class="containerDiv">
+
+  <div class="rowDivHeader">
+    <div class="cellDivHeader">Responsible</div>
+    <div class="cellDivHeader">1</div>
+    <div class="cellDivHeader">2</div>
+    <div class="cellDivHeader">3</div>
+    <div class="cellDivHeader">4</div>
+    <div class="cellDivHeader">5</div>
+    <div class="cellDivHeader lastCell">ALL</div>
+  </div>
+
+  <div class="rowDiv">
+    <div class="cellDiv">Section</div>
+    <div class="cellDiv"><input type="checkbox" name="chkName" onClick="selectall()" value = "1"></div>
+    <div class="cellDiv"><input type="checkbox" name="chkName" onClick="selectall()" value = "2"></div>
+    <div class="cellDiv"><input type="checkbox" name="chkName" onClick="selectall()" value = "3"></div>
+    <div class="cellDiv"><input type="checkbox" name="chkName" onClick="selectall()" value = "4"></div>
+    <div class="cellDiv"><input type="checkbox" name="chkName" onClick="selectall()" value = "5"></div>
+    <div class="cellDiv lastCell"><input type="checkbox" name="allCheck" onClick="selectallMe()" value = "all"><br /></div>
+  </div>
+</div>
+</br>
+ <select id = "group" name = "blood_group" onchange="showDonor(this.value)">
+               <option value = "all" selected>Select Group</option>   
+               <option value = "A+">A+</option>
+               <option value = "A-">A-</option>
+	       <option value = "B+">B+</option>
+	       <option value = "B-">B-</option>
+               <option value = "AB+">AB+</option>
+ 	       <option value = "AB-">AB-</option>
+               <option value = "O+">O+</option>
+               <option value = "O-">O-</option></select></br>
+ <br>
+</form>
+</body>
+</html>
+

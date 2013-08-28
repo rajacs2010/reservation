@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  train_number: 1
+  source: MyString
+  destination: MyString
+  travel_date: 2013-03-26
+  first_pasenger_name: MyString
+  first_pasenger_gender: MyString
+  first_pasenger_age: 1
+  first_passenger_id_card: MyString
+  first_passenger_id_card_number: MyString
+  second_pasenger_name: MyString
+  second_pasenger_gender: MyString
+  second_pasenger_age: 1
+  second_passenger_id_card: MyString
+  second_passenger_id_card_number: MyString
+  third_pasenger_name: MyString
+  third_pasenger_gender: MyString
+  third_pasenger_age: 1
+  third_passenger_id_card: MyString
+  third_passenger_id_card_number: MyString
+
+two:
+  train_number: 1
+  source: MyString
+  destination: MyString
+  travel_date: 2013-03-26
+  first_pasenger_name: MyString
+  first_pasenger_gender: MyString
+  first_pasenger_age: 1
+  first_passenger_id_card: MyString
+  first_passenger_id_card_number: MyString
+  second_pasenger_name: MyString
+  second_pasenger_gender: MyString
+  second_pasenger_age: 1
+  second_passenger_id_card: MyString
+  second_passenger_id_card_number: MyString
+  third_pasenger_name: MyString
+  third_pasenger_gender: MyString
+  third_pasenger_age: 1
+  third_passenger_id_card: MyString
+  third_passenger_id_card_number: MyString

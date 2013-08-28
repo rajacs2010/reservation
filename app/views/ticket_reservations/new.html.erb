@@ -1,0 +1,107 @@
+
+
+<html>
+  
+  <%= form_for @reservation do |form| %>
+   <div class="CSSTableGenerator">
+	<br />
+	<table cellpadding=4>
+	    <tr>
+		<td colspan=3><font color="White">Ticket Reservation</font></td>
+	    </tr>
+	    <tr>
+		<td><strong>&emsp;Train Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;
+			<font color="Brown"><%= $train.train_name + " " + $train.train_type %></font></strong>
+		</td>
+		<td><strong>&emsp;Class&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;:&nbsp;
+			<font color="Brown"><%= $coach %></font></strong>
+		</td>
+		<td><strong>&emsp;Date&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;:&nbsp;
+			<font color="Brown"><%= @travel_date %></font></strong>
+		</td>
+	    </tr>
+	    <tr>
+		<td><strong>&emsp;From&emsp;&emsp;&emsp;&emsp;&nbsp;:&nbsp;
+			<font color="Brown"><%= $source.station_code %></font></strong>
+		</td>
+		<td><strong>&emsp;To&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;:&nbsp;
+			<font color="Brown"><%= $destination.station_name %></font></strong>
+		</td>
+		<td><strong>&emsp;Train Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;
+			<font color="Brown"><%= $train_number %></font></strong>
+		</td>
+	    </tr>
+	    <tr>
+		<td><strong>&emsp;Bording Point&nbsp;:&nbsp;
+			<font color="Brown"><%= $source.station_name.capitalize %></font></strong>
+		</td>
+		<td><strong>&emsp;Reservation Upto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;
+			<font color="Brown"><%= $destination.station_code %></font></strong>
+		</td>
+		<td><strong>&emsp;Quota&emsp;&emsp;&emsp;&emsp;&emsp;:&nbsp;
+			<font color="Brown">General</font></strong>
+		</td>
+	    </tr>
+
+	</table>
+	<br />
+	<table>
+
+	    <tr>
+		<td colspan=6>Passenger Details</td>
+	    </tr>
+
+	    <tr>
+		<td style = "background-color:BurlyWood; color:green">
+		    <strong><center>S.No</center></strong>
+		</td>
+		<td style = "background-color:BurlyWood; color:green">
+		    <strong><center>Name</center></strong>
+		</td>
+		<td style = "background-color:BurlyWood; color:green">
+		    <strong><center>Age</center></strong>
+		</td>
+		<td style = "background-color:BurlyWood; color:green">
+		    <strong><center>Gender</center></strong>
+		</td>
+		<td style = "background-color:BurlyWood; color:green">
+		   <strong> <center>ID Proof</center></strong>
+		</td>
+		<td style = "background-color:BurlyWood; color:green">
+		    <strong><center>ID Proof Number</center></strong>
+		</td>
+
+	    </tr>
+	    <tr>
+		<td style = "background-color:BurlyWood; color:green">
+		    <strong><center>1</center></strong>
+		</td>
+		<td style = "background-color:BurlyWood; color:green">
+		    <strong><center><%= form.text_field :first_pasenger_name, :size => 15 %></center></strong>
+		</td>
+		<td style = "background-color:BurlyWood; color:green">
+		    <strong><center><%= form.text_field :first_pasenger_age, :size => 1, :id => "age" %></center></strong>
+		</td>
+		<td style = "background-color:BurlyWood; color:green">
+		    <strong><center><%= form.select :first_pasenger_gender, options_for_select([ "Male", "Female"]) %></center></strong>
+		</td>
+		<td style = "background-color:BurlyWood; color:green">
+		   <strong> <center><%= form.select :first_passenger_id_card, options_for_select([ ["Select One", ""],"Election Card", "Passport","PAN Card","Driving Licence", "Bank Passbook","Govnt. Id Card"]) %></center></strong>
+		</td>
+		<td style = "background-color:BurlyWood; color:green">
+		    <strong><center><%= form.text_field :first_passenger_id_card_number, :size => 8, :id => "proof" %></center></strong>
+		</td>
+
+	    </tr>
+
+	</table>
+	<br />
+	<center><%= form.submit "Go", :class => "button" %>&emsp;
+	<INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;" class="button">&emsp;<%= link_to "Replan", ticket_reservations_path, :class => "button" %></center>
+	
+
+   </div>
+  
+  <% end %>
+
+</html>

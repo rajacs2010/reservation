@@ -1,0 +1,82 @@
+
+
+<html>
+  
+  <%= form_for @reservation do |form| %>
+   <div class="CSSTableGenerator">
+
+	<table cellpadding=4>
+	    <tr>
+		<td colspan=3><font color="White">Ticket Reservation</font></td>
+	    </tr>
+	    <tr>
+		<td><strong>&emsp;Train Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;
+			<font color="Brown"><%= @train.train_name + " " + @train.train_type %></font></strong>
+		</td>
+		<td><strong>&emsp;Class&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;:&nbsp;
+			<font color="Brown"><%= @coach %></font></strong>
+		</td>
+		<td><strong>&emsp;Date&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;:&nbsp;
+			<font color="Brown"><%= @travel_date %></font></strong>
+		</td>
+	    </tr>
+	    <tr>
+		<td><strong>&emsp;From&emsp;&emsp;&emsp;&emsp;&nbsp;:&nbsp;
+			<font color="Brown"><%= @source.station_code %></font></strong>
+		</td>
+		<td><strong>&emsp;To&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;:&nbsp;
+			<font color="Brown"><%= @destination.station_name %></font></strong>
+		</td>
+		<td><strong>&emsp;Train Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;
+			<font color="Brown"><%= @train_number %></font></strong>
+		</td>
+	    </tr>
+	    <tr>
+		<td><strong>&emsp;Bording Point&nbsp;:&nbsp;
+			<font color="Brown"><%= @source.station_name.capitalize %></font></strong>
+		</td>
+		<td><strong>&emsp;Reservation Upto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;
+			<font color="Brown"><%= @destination.station_code %></font></strong>
+		</td>
+		<td><strong>&emsp;Quota&emsp;&emsp;&emsp;&emsp;&emsp;:&nbsp;
+			<font color="Brown">General</font></strong>
+		</td>
+	    </tr>
+
+	</table>
+
+	<table>
+
+	    <tr>
+		<td colspan=6>Passenger Details</td>
+	    </tr>
+
+	    <tr>
+		<th style = "background-color:BurlyWood; color:green">
+		    S.No
+		</th>
+		<th style = "background-color:BurlyWood; color:green">
+		    Name
+		</th>
+		<th style = "background-color:BurlyWood; color:green">
+		    Age
+		</th>
+		<th style = "background-color:BurlyWood; color:green">
+		    Gender
+		</th>
+		<th style = "background-color:BurlyWood; color:green">
+		    ID Proof
+		</th>
+		<th style = "background-color:BurlyWood; color:green">
+		    ID Proof Number
+		</th>
+
+	    </tr>
+
+	</table>
+
+   </div>
+  
+  <% end %>
+
+</html>

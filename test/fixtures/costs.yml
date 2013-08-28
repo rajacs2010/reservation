@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  first_ac: 9.99
+  second_ac: 9.99
+  third_ac: 9.99
+  chair_car: 9.99
+  sleeper: 9.99
+  sitting: 9.99
+
+two:
+  first_ac: 9.99
+  second_ac: 9.99
+  third_ac: 9.99
+  chair_car: 9.99
+  sleeper: 9.99
+  sitting: 9.99

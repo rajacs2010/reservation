@@ -1,0 +1,92 @@
+
+
+<html>
+   <head>
+
+ <meta charset="utf-8" />
+<title>jQuery UI Autocomplete - Default functionality</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css" />
+ <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/base/jquery.ui.core.css" />
+<%= javascript_include_tag "jquery.ui.core", "jquery.ui.widget", "jquery.ui.position", "jquery.ui.autocomplete" %>
+<script>
+
+
+</script>
+   </head>
+
+
+		<% @station = Station.all %>
+		
+		    <% $station = Array.new %>
+		  
+		    <% @station.each do |station| %>
+			<% $station.push(station.station_name) %>
+		    <% end %>
+<body  onload="autocompletevalue('<%= $station %>');">
+   <%= form_tag('search', :method => 'get') do |f|%>
+<div id = "main" align=center>
+     <div id="main_left1">
+			<table>
+		<tr><td colspan = 2>Plan My Travel<br /><br /></td></tr>
+	    <tr>
+		<td>&emsp;<label for="source">From</label></td>
+		<td><input type = "text" name="source" id="from"></td>
+	    </tr>
+	    <tr>
+		<td>&emsp;<label for="destination">To</label></td>
+		<td><input type = "text" name="destination" id="to"></td>
+	    </tr>
+	    <tr>
+		<td>&emsp;Date</td>
+		<td><input type = "text" name="date" id = "datepicker1"></td>
+	    </tr>
+	    <tr>
+		<td>&emsp;Quata</td>
+		<td>
+		    <select>
+			<option value="General">General</option>
+		    </select> 
+		</td>
+	    </tr>
+
+	</table>
+	<br />
+	<center><INPUT Type="submit" VALUE="Find Trains" class="button">
+	<INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;" class="button"></center>
+
+
+    </div>
+</div>
+    <div class="CSSTableGenerator3" id="main_right1">
+		<% @station = Station.all %>
+		<table class="table1">
+			<tr>
+				<td>S.No</td>
+				<td>Station Name</td>
+				<td>Station Code</td>
+				
+			</tr>
+		    <% $station = Array.new %>
+		    <% i = 0 %>
+		    <% @station.each do |station| %>
+			<% $station.push(station.station_name) %>
+			<tr>
+				<td><b><center><%= i = i + 1 %></center></b></td>
+				<td><%= station.station_name %></td>
+				<td><%= station.station_code %></td>
+				
+			</tr>
+		    <% end %>
+
+		</table>
+		<br />
+
+
+     </div>
+
+   <% end %>
+</body>
+</html>

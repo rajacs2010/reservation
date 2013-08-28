@@ -1,0 +1,45 @@
+
+
+<html>
+
+    <center>
+
+	<font color="green"><p id="notice"><%= notice %></p></font>
+
+	<table class = "boldtable1" style= "background-color: DarkKhaki; font-family: times" width="900" border=2>
+		   	   
+	   <tr >
+		<td width = "45%"><font color="black "><center><b>Users List</b></center><font></td>
+	   </tr>
+			   
+	</table>
+
+	<table style = "background-color:LightSteelBlue ">
+
+	  <tr>
+	    <td>Name</td>
+	    <td><%= @user.name %></th>
+	  </tr>
+	
+	  <tr>
+	    <td>E-Mail</td>
+	    <td><%= @user.email %></th>
+	  </tr>
+	
+	  <tr>
+	    <td>Mobile Number</td>
+	    <td><%= @user.mobile %></th>
+	  </tr>
+
+	  <tr>
+	    <td>City</td>
+	    <td><%= @user.city %></th>
+	  </tr>
+
+	</table>
+
+	<br />
+
+    </center>
+
+</html>

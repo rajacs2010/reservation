@@ -1,0 +1,61 @@
+<!--#####################################################################################-->
+<!--#											#-->
+<!--#   File			: new.html.erb						#-->
+<!--#   Project			: Reservation System					#-->
+<!--#   Module			: Route Management					#-->
+<!--#   Description		: This form is used to show  the station list		#-->
+<!--#											#-->
+<!--#   Revision History								#-->
+<!--#											#-->
+<!--#   Created Date		: 21/03/2013						#-->
+<!--#   Modified Date		: 21/03/2013						#-->
+<!--#   By			: Muthukrishnan						#-->
+<!--#   Designation		: Tech-Project Trainee					#-->
+<!--#											#-->
+<!--#####################################################################################-->
+
+<html>
+
+	    <div class="CSSTableGenerator">
+		<table class="table1">
+			<tr>
+				<td>S.No</td>
+				<td>Train Number</td>
+				<td>First Ac</td>
+				<td>Second Ac</td>
+				<td>Third Ac</td>
+				<td>Chair Car</td>
+				<td>Sleeper</td>
+				<td>Second Sitting</td>
+				<td>Total Coaches</td>
+				<td></td>
+				
+			</tr>
+		    <% i = 0 %>
+		    <% @coach.each do |coach| %>
+			
+			<tr>
+				<td><center><%= i = i + 1 %></center></td>
+				<td><center><%= coach.train_number %></center></td>
+				<td><%= coach.train_number %></td>
+				<td><%= coach.first_ac %></td>
+				<td><%= coach.second_ac %></td>
+				<td><%= coach.third_ac %></td>
+				<td><%= coach.chair_car %></td>
+				<td><%= coach.sleeper %></td>
+				<td><%= coach.sitting %></td>
+				<% total_coaches = coach.first_ac + coach.second_ac + coach.third_ac + coach.chair_car + coach.sleeper + coach.sitting %>
+				<td><%= total_coaches %></td>
+				<td><%= link_to image_tag("edit.png"),edit_coach_detail_path(train)%>&emsp;&emsp;
+				    <%= link_to image_tag("delete.png"), coach, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+
+		    <% end %>
+		</table>
+		<br />
+		<%= link_to "New Route", new_train_path, :class => "button" %>
+			<INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;" class="button">
+	    </div>
+
+</html>
+

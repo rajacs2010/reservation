@@ -1,0 +1,31 @@
+
+<html>
+  
+
+<%= form_tag change_password_path do |f| %>
+   <br />
+   <div class = "CSSTableGenerator">
+      <table><tr><td><center>Change Password</center></td></tr></table>
+      <table>
+	<tr></tr>
+	   <tr><td width="45%">Email</td>
+	   <td>&emsp;&emsp;<%= text_field_tag :email, params[:email] %></td> </tr>
+	   <tr><td width="45%">Old Password</td>
+	   <td>&emsp;&emsp;<%= password_field_tag :old_password, nil %></td> </tr>
+	   <tr><td width="45%">New Password</td>
+	   <td>&emsp;&emsp;<%= password_field_tag :new_password, nil %></td> </tr>
+	   <tr><td width="45%">Re-Type Password</td>
+	   <td>&emsp;&emsp;<%= password_field_tag :new_password_confirmation, nil %></td> </tr>
+           
+      </table>
+      <br />
+      <div class="button_div">
+	<%= submit_tag "submit", :class => "button" %>&nbsp;&nbsp;&nbsp;
+	<INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;" class="button">
+      </div>
+      <br />
+   </div>
+
+<% end %>
+
+</html>

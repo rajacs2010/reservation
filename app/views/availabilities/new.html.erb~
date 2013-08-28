@@ -1,0 +1,29 @@
+<html>
+
+     <%= form_for @availability do |form| %>
+<div style="margin:50px;" align="justify">
+		<font color ="red"><%= form.error_messages :header_message => "Invalid Details!",
+  			:message => "You'll need to fix the following fields:",
+  			:header_tag => :h3 %></font>
+	    </div>
+    <fieldset style="width: 320px;">
+
+        <legend><h3>Seat Management</h3></legend>
+	    
+	   
+	    <table class="table">
+
+		<tr><td>Train Number</td></tr>
+		<tr><td><%= form.collection_select(:train_number,Train.all,:train_number, :train_number,{:prompt => "Train_number"},{:class=>'collection'})  %><br /></td></tr>
+
+	    </table>
+		<br />
+		<%= form.submit "Submit", :class => "button" %>&emsp;
+		<INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;" class="button">
+
+	
+		<br /><br />
+    </fieldset>
+<% end %>
+
+</html>

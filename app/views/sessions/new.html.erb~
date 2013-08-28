@@ -1,0 +1,27 @@
+
+
+<html>
+<fieldset style="width: 350px;">
+<legend><h3>Login  </h3></legend>
+
+<%= form_tag sessions_path do %>
+
+<table>
+   <tr><td></td></tr>
+   <tr><td>E-Mail</td></tr>
+   <tr><td><%= text_field_tag :email, params[:email] %></td></tr>
+   <tr><td></td></tr>
+   <tr><td>Password</td></tr>
+   <tr><td><%= password_field_tag :password%></td></tr><tr><td></td></tr>
+   <% if login_path %>
+   <tr><td align="right"><%= link_to "Sign Up", new_user_path %></td><tr>
+   <% end %>
+   <tr><td align="right"><%= link_to "Forgot Password?",forgot_password_path %></td><tr>
+   <tr><td><center></center></td></tr>
+</table>
+<div class="button_div"><%= submit_tag "Log in", :class => "button" %>
+	&nbsp;&nbsp;&nbsp;<INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;" class="button">
+</div>
+<% end %>
+</fieldset>
+</html>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  first_ac: 1
+  second_ac: 1
+  third_ac: 1
+  chair_car: 1
+  sleeper: 1
+  sitting: 1
+
+two:
+  first_ac: 1
+  second_ac: 1
+  third_ac: 1
+  chair_car: 1
+  sleeper: 1
+  sitting: 1

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'/>
+    <title>Colorbox Examples</title>
+    <style>
+      
+    </style>
+    <link rel="stylesheet" href="assets/colorbox.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="assets/jquery.colorbox.js"></script>
+    <script>
+      $(document).ready(function(){
+        //Examples of how to assign the Colorbox event to elements
+        
+        $(".ajax").colorbox();
+       
+       
+        //Example of preserving a JavaScript event for inline calls.
+        $("#click").click(function(){ 
+          $('#click').css({"background-color":"red", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
+          return false;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    
+    <p><a class='ajax' href="logins">Login</a></p>
+    
+
+    <!-- This contains the hidden content for inline calls -->
+    
+  </body>
+</html>

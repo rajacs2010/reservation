@@ -1,0 +1,75 @@
+
+<html>
+
+   <%= form_tag('search', :method => 'get') do %>
+
+     <div class="CSSTableGenerator1">
+	<table>
+	    
+	    <tr>
+		<td>
+		   <div class="CSSTableGenerator">
+			<table>
+		<tr><td colspan = 2>Plan My Travel<br /><br /></td></tr>
+	    <tr>
+		<td>&emsp;<label for="source">From</label></td>
+		<td><input type = "text" name="source"></td>
+	    </tr>
+	    <tr>
+		<td>&emsp;<label for="destination">To</label></td>
+		<td><input type = "text" name="destination"></td>
+	    </tr>
+	    <tr>
+		<td>&emsp;Date</td>
+		<td><input type = "text" name="date" id = "datepicker1"></td>
+	    </tr>
+	    <tr>
+		<td>&emsp;Quata</td>
+		<td>
+		    <select>
+			<option value="General">General</option>
+		    </select> 
+		</td>
+	    </tr>
+
+	</table>
+	<br />
+	<center><INPUT Type="submit" VALUE="Find Trains" class="button">
+	<INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;" class="button"></center>
+
+
+		   </div>
+
+		</td></tr>
+		<tr>
+		<td><center>
+			<div class="CSSTableGenerator">
+		<% @station = Station.all %>
+		<table class="table1">
+			<tr>
+				<td>S.No</td>
+				<td>Station Name</td>
+				<td>Station Code</td>
+				
+			</tr>
+		    <% i = 0 %>
+		    <% @station.each do |station| %>
+			
+			<tr>
+				<td><b><center><%= i = i + 1 %></center></b></td>
+				<td><%= station.station_name %></td>
+				<td><%= station.station_code %></td>
+				
+			</tr>
+
+		    <% end %>
+		</table>
+		<br />
+
+			</div></center></td>
+
+	</table>
+
+     </div>
+   <% end %>
+</html>

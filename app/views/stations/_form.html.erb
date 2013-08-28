@@ -1,0 +1,34 @@
+
+
+
+<html>
+
+     <%= form_for @station do |form| %>
+<div style="margin:50px;" align="justify">
+		<font color ="red"><%= form.error_messages :header_message => "Invalid Details!",
+  			:message => "You'll need to fix the following fields:",
+  			:header_tag => :h3 %></font>
+	    </div>
+    <fieldset style="width: 320px;">
+
+        <legend><h3>New Station  </h3></legend>
+	    
+	   
+	    <table class="table">
+
+		<tr><td>Station Name</td></tr>
+		<tr><td><%= form.text_field :station_name, :size => 20, :autofocus => true %><br /></td></tr>
+		<tr><td>Station Code</td></tr>
+		<tr><td><%= form.text_field :station_code, :size => 20 %></td></tr>
+
+	    </table>
+		<br />
+		<a href="#" class="button" id="save">Submit</a>&emsp;
+		<a href="#" class="button" onClick="history.go(-1);return true;">Back</a>&emsp;
+		
+	
+		<br /><br />
+    </fieldset>
+<% end %>
+
+</html>

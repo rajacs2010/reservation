@@ -1,0 +1,105 @@
+#################################################################################
+#										#
+#   File			: availabilities_controller.rb			#
+#   Project			: Reservation System				#
+#   Module			: Train Management				#
+#   Description			: This controller used to maintain all the 	#
+#				  details of the availability of seats		#
+#										#
+#   Revision History								#
+#										#
+#   Created Date		: 25/03/2013					#
+#   Modified Date		: 25/03/2013					#
+#   By				: Muthukrishnan					#
+#   Designation			: Tech-Project Trainee				#
+#										#
+#################################################################################
+
+class ReservationsController < ApplicationController
+
+   ##############################################################################
+   #   Name		: index	 						#
+   #   Programmer(s)	: Muthukrishnan						#
+   #   Written Date	: 25/03/2013						#
+   #   Modified Date	: 25/03/2013						#
+   #   Tested By	: 							#
+   #   Tested Date	: 							#
+   ##############################################################################
+
+    def index
+
+    end  #def index
+
+   ##############################################################################
+   #   Name		: index	 						#
+   #   Programmer(s)	: Muthukrishnan						#
+   #   Written Date	: 26/03/2013						#
+   #   Modified Date	: 26/03/2013						#
+   #   Tested By	: 							#
+   #   Tested Date	: 							#
+   ##############################################################################
+
+    def new
+
+	@available_ticket = params[:available_ticket]
+	@coach = params[:coach]
+	@train_number = params[:train_number]
+	@train = Train.find_by_train_number(@train_number)
+	@travel_date = $travel_date.strftime("%d/%m/%Y")
+	@source = $source
+	@destination = $destination
+	@reservation = TicketReservation.new
+
+    end #def new
+
+
+    def create
+
+    end   #def create
+
+   ##############################################################################
+   #   NAME		: search						#
+   #   Programmer(s)	: Muthukrishnan						#
+   #   Written Date	: 25/03/2013						#
+   #   Modified Date	: 26/03/2013						#
+   #   Tested By	: 							#
+   #   Tested Date	: 							#
+   ##############################################################################
+
+    def search
+
+     if current_user
+
+	$source = Station.find_by_station_code(params[:source])
+	$destination = Station.find_by_station_code(params[:destination])
+	$travel_date = Date.parse(params[:date])
+	@route = Route.find_by_source_and_destination($source.station_name,$destination.station_name)
+	
+	if @route
+
+	    @trains = Train.where(:route_id => @route.id).all
+	
+		begin
+
+		    respond_to do |format|
+			
+			format.html
+			format.xml { render :xml => @trains}
+
+		    end
+
+		rescue
+		    redirect_to reservations_path, :notice => "No Trains available!!!"
+		end  #begin
+	else
+
+	    redirect_to reservations_path, :notice => "No Routes available!!!"
+	end  #if @route
+
+     else
+	redirect_to home_path
+     end   #if current_user
+
+    end   # def search
+
+end  #class ReservationsController < ApplicationController

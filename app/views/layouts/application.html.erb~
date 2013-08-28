@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>E-Reservation</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link href="http://ajax.microsoft.com/ajax/jquery.ui/1.8.5/themes/redmond/jquery-ui.css" rel="stylesheet" type="text/css" />
+    
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" /></script>
+    
+  <script src="http://jquery-ui.googlecode.com/svn/trunk/ui/i18n/jquery.ui.datepicker-pt-BR.js" type="text/javascript" /></script>        
+        
+  <script src="http://ajax.microsoft.com/ajax/jquery.ui/1.8.5/jquery-ui.min.js" type="text/javascript"></script>
+ <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css" />
+
+<meta name="keywords" content="Ticket Reservation" />
+<meta name="description" content="Online Reservation for Train" />
+<link href="templatemo_style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="templatemo_container">
+	<div id="templatemo_top_panel">
+		<!--  Free CSS Templates @ www.TemplateMo.com  -->   
+    	<div id="top_panel_ls">
+            <div id="templatemo_site_title">E-Reservation</div>
+        </div>
+
+      <div id="top_panel_rs">
+
+            <div id="search_section">
+                <form action="#" method="get">
+		    
+                    <b>PNR Number</b>&nbsp;<input type="text" name="q" size="10" id="searchfield" title="searchfield" />
+                  <input type="submit" name="Search" value="Search" alt="Search" id="searchbutton" title="Search" />
+                </form>
+            	<div class="cleaner"></div>
+            </div> 
+            
+            <div id="templatemo_menu">
+                <ul>
+                    <li><%= link_to 'Home', home_path %></li>
+                    <% if current_user %>
+			<% if current_user.email == "muthukrishnan@qadex.com" %>
+			
+	    			<li><%= link_to 'Route Details', route_home_path, :class => "a"%></li>
+				<li><%= link_to "Train Details" , train_home_path, :class => "a" %></li>
+				<li><%= link_to 'Reservation Status', home_path, :class => "a"%></li>
+				<li><%= link_to "Logout" , log_out_path, :class => "a" %></li>
+
+			<% else %>
+				
+	    			<li><%= link_to 'Reservation', ticket_reservations_path, :class => "a"%></li>
+				<li><%= link_to "Booked History" , home_path, :class => "a" %></li>
+				<li><%= link_to 'Contact Us', home_path, :class => "a"%></li>
+				<li><%= link_to "Logout" , log_out_path, :class => "a" %></li>
+
+			<% end %>
+
+           	    <% else %>
+            		<li><%= link_to 'Login',login_path, :class => "a"%></li>
+            		<li><%= link_to 'New User', "#",:onclick => "loadDialog('New User','users/new');", :class => "a" %></li>
+            		<li><%= link_to 'Status Check', home_path, :class => "a"%></li>
+            		<li><%= link_to 'Contact Us', home_path, :class => "a"%></li>
+	   	   <% end %>
+                </ul>   
+                <div class="cleaner"></div> 	
+            </div> <!-- end of menu -->
+
+            <div class="cleaner"></div>
+	  </div>    
+    </div> <!-- end of top _panel -->
+ <!--   <div id="ct"></div>
+    <div id="templatemo_banner">
+
+        <div id="banner_header_01">Welcome to E-Reservation System</div>
+    </div>	<!-- end of banner 
+    <div id="cb"></div>-->
+    <div id="ct"></div>
+    <div id="templatemo_content">
+
+
+		 <% if current_user %>
+		<table width=900><tr><td width="78%">
+    <font color = "white"; size= "3pt" >Welcome <%= link_to "#{current_user.name}", edit_user_path(current_user.id), :class => "button" %>. You Last logged in is <font color = "green"; size= "3pt" ><%= current_user.last_login.to_s %></font>.&nbsp;</font>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</td><td><%= link_to "Change Password" , change_password_path, :class => "button" %></td></tr></table>
+  <% else %>
+    
+  <% end %>
+<div class="flash">
+	<% flash.each do |name, msg| %>
+	  <font color="red"><br /><br /><%= content_tag :div, msg, :id => "flash_#{name}" %></font>
+	<% end %></div>
+		        <br />
+<div id="dialog-form" title="" align=center>
+</div>
+                <center> <%= yield %></center>
+		<br /><br />
+    	<div class="cleaner">&nbsp;</div>
+    
+	</div> <!-- end of content -->
+	<div id="cb"></div>
+    
+    <div id="templatemo_footer">
+        Copyright © 2013 <a href="http://www.qdxsoft.com" target="_blank">QDXSoft Solution (P) Ltd..</a> | 
+		Designed by <a href="http://www.qdxsoft.com" target="_blank">Muthukrishnan</a>
+    </div> <!-- end of footer -->
+<!--  Free Web Templates @ TemplateMo.com  -->
+</div> <!-- end of container -->
+</body>
+</html>

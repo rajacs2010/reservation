@@ -1,0 +1,29 @@
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+  
+  $("#stations_search input").keyup(function() {
+    $.get($("#stations_search").attr("action"), $("#stations_search").serialize(), null, "script");
+    //alert("hello");
+    return false;
+  });
+  $("#stations_search #submit").click(function() {
+    $.get($("#stations_search").attr("action"), $("#stations_search").serialize(), null, "script");
+    //alert("hello");
+    return false;
+  });
+
+  $("#stations .th a, #stations .pagination a").live("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+});
+</script>
+
+<%= form_tag sort_path, :method => 'get', :id => "stations_search" do %>
+  <p align="left">
+    <%= text_field_tag :search, params[:search] %>
+    &emsp;<%= submit_tag "Search", :name => nil, :id => "submit" %>
+  </p><br><br>
+  <div id="stations"><%= render 'stations' %></div>
+<% end %>

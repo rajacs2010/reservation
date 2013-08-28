@@ -1,0 +1,36 @@
+#########################################################################################
+#											#
+#   File			: 20130325060905_create_seat_availability_details.rb	#
+#   Project			: Reservation System					#
+#   Module			: Train Management					#
+#											#
+#   Revision History									#
+#											#
+#   Created Date		: 25/03/2013						#	
+#   Modified Date		: 25/03/2013						#	
+#   By				: Muthukrishnan						#
+#   Designation			: Tech-Project Trainee					#
+#											#
+#########################################################################################
+
+class CreateSeatAvailabilityDetails < ActiveRecord::Migration
+
+  def change
+
+    create_table :seat_availability_details do |t|
+
+	t.integer :train_number
+	t.date :travel_date
+	t.integer :first_AC
+	t.integer :second_AC
+	t.integer :third_AC
+	t.integer :chair_car
+	t.integer :sleeper
+	t.integer :sitting
+	t.timestamps
+
+    end   #create_table :seat_availability_details do |t|
+
+  end  #def change
+
+end  #class CreateSeatAvailabilityDetails < ActiveRecord::Migration

@@ -1,0 +1,28 @@
+
+<html>
+
+    <body>
+	
+	 <div  class = "CSSTableGenerator">
+	
+	    
+	    <table>
+		
+
+		  <tr><td>Name</td><td>E-Mail</td><td>Mobile Number</td><td></td></tr>
+		  <tr>
+
+		    <td width = "20%">&emsp;<%= @user.name %></td>
+		   
+		    <td width = "40%">&emsp;<%= @user.email %></td>
+		    <td width = "15%">&emsp;<%= @user.mobile %></td>
+		    <td>&emsp;<%= link_to 'Edit', edit_user_path(@user), :class => "button" %></td>
+		
+		  </tr>
+		  
+	    </table>
+
+	</div>
+    </body>
+
+</html>
